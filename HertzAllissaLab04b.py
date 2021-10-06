@@ -1,17 +1,19 @@
 #File HertzAllissaLab04b.py
+import math
 
 import graphics
 from graphics import *
+
 
 def main():
     ###Set the Name of the window
     winName = "Lab 4 - HertzAllissa"
     ###Ask the user what color the circle should be
-    color1 = 'blue'
+    color1 = input("What color would you like the circle to be? ")
     ###Ask the user what the x,y coordinates of the circle are
-    x1,y1 = 100,100
+    x1,y1 = eval(input("What are the x,y coordinates of the center of the circle? "))
     ###Ask the user what the radius of the circle is
-    radius1 = 20
+    radius1 = eval(input("What is the radius of the circle? "))
 
     ###Create a 500x500 window with the title "Lab 4 - HertzAllissa"
     win = GraphWin(winName, 500, 500)
@@ -34,94 +36,37 @@ def main():
     x2 = x1
     y2 = y1-(2*radius1)
     center2 = Point(x2, y2)
-    print(center2)
+    print(x2, y2)
     ###Draw a green circle
     circ2 = Circle(center2, radius2)
     circ2.setFill(color2)
     circ2.draw(win)
 
-    ### we have 2 circles, the next thing to do is to draw a line between the centers of them
-    ### recall that center1 is the center of the 1st circle, and center2 is the center of the 2nd
-    line = Line(center1, center2)
-    ### set the color of the line to be red
-    line.setFill('red')
-    ### draw the line
-    line.draw(win)
-
-    ### this statement has the computer wait for a mouse click from the user.
-    ### on some systems this may only work with a left or a right mouse click
-    win.getMouse()
-    
-    ### this loop will now move the circle 
-    for i in range (1):
-        ### ???
-        circ2.move(40, 40)
-        ### this gets rid of the line…it doesn’t have to be in the loop!
-        line.undraw()
-        ### tell the computer to pause so that we can see the circle moving
-        time.sleep(2)
-
-    ### once we are done with the movement, query the center of the moved circle
-    center2 = circ2.getCenter()
-    print(center2)
-
-    ### draw a new line from the center of the first cicle to the center of the new circle.  
+    ###Draw a line from the center of the first circle to the center of the second
     line = Line(center1, center2)
     line.setFill('red')
     line.draw(win)
 
-        ### this loop will now move the circle 
-    for i in range (1):
-        ### ???
-        circ2.move(-40, 40)
-        ### this gets rid of the line…it doesn’t have to be in the loop!
-        line.undraw()
-        ### tell the computer to pause so that we can see the circle moving
-        time.sleep(2)
+    while True:
+       if win.getMouse():
+           # ox, oy = origin
+           # px, py = point
+           #
+           # qx = ox + math.cos(angle) * (px - ox) - math.sin(angle) * (py - oy)
+           # qy = oy + math.sin(angle) * (px - ox) + math.cos(angle) * (py - oy)
+           # return qx, qy
 
-    ### once we are done with the movement, query the center of the moved circle
-    center2 = circ2.getCenter()
-    print(center2)
+            originX = circ1.getCenter().x;
+            originY = circ1.getCenter().y
+            pointX = originX + math.cos(math.pi/2) * (circ2.getCenter().x - originX) - math.sin(math.pi/2) * (circ2.getCenter().y - originY)
+            pointY = originY + math.sin(math.pi/2) * (circ2.getCenter().x - originX) + math.cos(math.pi/2) * (circ2.getCenter().y - originY)
 
-    ### draw a new line from the center of the first cicle to the center of the new circle.  
-    line = Line(center1, center2)
-    line.setFill('red')
-    line.draw(win)
-
-            ### this loop will now move the circle 
-    for i in range (1):
-        ### ???
-        circ2.move(-40, -40)
-        ### this gets rid of the line…it doesn’t have to be in the loop!
-        line.undraw()
-        ### tell the computer to pause so that we can see the circle moving
-        time.sleep(2)
-
-    ### once we are done with the movement, query the center of the moved circle
-    center2 = circ2.getCenter()
-    print(center2)
-
-    ### draw a new line from the center of the first cicle to the center of the new circle.  
-    line = Line(center1, center2)
-    line.setFill('red')
-    line.draw(win)
+            circ2.move(pointX - circ2.getCenter().x, pointY - circ2.getCenter().y)
+            line.undraw()
+            time.sleep(0.1)
+            center2 = circ2.getCenter()
+            line = Line(center1, center2)
+            line.setFill('red')
+            line.draw(win)
 
 main()
-
-
-    
-
-
-
-
-
-
-
-
-
-    
-
-
-    
-
-    
