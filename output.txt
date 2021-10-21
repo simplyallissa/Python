@@ -1,0 +1,5 @@
+johnd 27.4
+janeb 14.6
+saran 24.6
+frankb 24.2
+marys 10.0
