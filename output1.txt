@@ -1,0 +1,3 @@
+Sum is: 55
+Mean is: 5.5
+Standard Deviation is: 3.03

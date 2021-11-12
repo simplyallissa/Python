@@ -1,0 +1,3 @@
+Sum is: 50146
+Mean is: 50.15
+Standard Deviation is: 28.18

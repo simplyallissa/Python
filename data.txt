@@ -1,0 +1,9 @@
+This lab handout with 6 screen shots (3 for part I and 3 for part II).
+Your Python code for Part I of this lab. Name the file using the following format:
+Example: If your name is Jamal Jones then you will name the file as follows:
+JonesJamalLab11a.cpp
+Your Python code for Part II of this lab. Name the file using the following format:
+YourlastnameFirstnameLab11b.cpp
+Example: If your name is Jamal Jones then you will name the file as follows:
+JonesJamalLab11b.cpp
+Write a program that asks the user to enter the number of packages purchased. The program should then display the discount percentage, amount of the discount (can be 0) and the total amount of the purchase after the discount.  Format the output to two decimal places, include % sign after the discount percentage and $ before the discount amount & total amount.
